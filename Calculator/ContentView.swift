@@ -117,7 +117,9 @@ struct ContentView: View {
         switch button {
         case .add, .subtract, .multiply, .divide, .equal:
             if button == .add {
+                // adds the current operation as add
                 self.currentOperation = .add
+                // sets the running number as the value selected, if there isn't one it sets as zero
                 self.runningNumber = Int(self.value) ?? 0
             }
             else if button == .subtract {
@@ -136,6 +138,7 @@ struct ContentView: View {
                 let runningValue = self.runningNumber
                 let currentValue = Int(self.value) ?? 0
                 switch self.currentOperation {
+                    // uses the running value, current value and current operation to calculate the result.
                 case .add:
                     self.value = "\(runningValue + currentValue)"
                 case .subtract:
